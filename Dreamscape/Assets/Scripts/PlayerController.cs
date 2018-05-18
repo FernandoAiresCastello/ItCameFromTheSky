@@ -3,7 +3,10 @@
 public class PlayerController : MonoBehaviour
 {
 	public GameObject projectile;
+	public Vector3 projectileOffset = new Vector3(0.0f, 0.25f, 0.0f);
 	public float jumpHeight = 200.0f;
+	public float moveSpeed = 2.0f;
+	public float rotationSpeed = 100.0f;
 	
 	private Vector3 initialPos;
 	private AudioSource footstepsAudio;
@@ -23,8 +26,8 @@ public class PlayerController : MonoBehaviour
 	
 	void Update()
 	{
-		var x = Input.GetAxis("Horizontal") * Time.deltaTime * 100.0f;
-		var z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
+		var x = Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed;
+		var z = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
 
 		transform.Rotate(0, x, 0);
 		transform.Translate(0, 0, z);
@@ -43,7 +46,9 @@ public class PlayerController : MonoBehaviour
 		}
 		
 		if (Input.GetKeyDown(KeyCode.RightControl) || Input.GetKeyDown(KeyCode.LeftControl)) {
-			Instantiate(projectile, transform.position, transform.rotation);
+			GameObject p = Instantiate(projectile, transform.position + projectileOffset, transform.rotation);
+			SpriteRenderer sr = p.GetComponent<SpriteRenderer>();
+			sr.color = this.GetComponent<SpriteRenderer>().color;
 		}
 		
 		if (Input.GetKeyDown(KeyCode.Space)) {

@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogBox : MonoBehaviour {
+	
+	public bool startHidden = false;
 
 	void Start () {
-		Hide();
+		if (startHidden)
+			Hide();
 	}
 	
 	void Update () {
