@@ -4,7 +4,7 @@ public class PlayerBase : MonoBehaviour
 {
 	void OnTriggerEnter()
 	{
-		PlayerController player = transform.parent.gameObject.GetComponent<PlayerController>();
+		Player player = transform.parent.gameObject.GetComponent<Player>();
 		player.SetGrounded(true);
 	}
 }

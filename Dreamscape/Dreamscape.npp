@@ -1,0 +1,14 @@
+<NotepadPlus>
+    <Project name="Dreamscape">
+        <File name="Assets\Scripts\CameraFacingBillboard.cs" />
+        <File name="Assets\Scripts\DialogBox.cs" />
+        <File name="Assets\Scripts\MainCameraController.cs" />
+        <File name="Assets\Scripts\PlayerBase.cs" />
+        <File name="Assets\Scripts\PlayerController.cs" />
+        <File name="Assets\Scripts\PlayerProjectile.cs" />
+        <File name="Assets\Scripts\Scene.cs" />
+        <File name="Assets\Scripts\TextureScroller.cs" />
+        <File name="Assets\Scripts\MysteryBox.cs" />
+        <File name="Assets\Scripts\MoneyPouch.cs" />
+    </Project>
+</NotepadPlus>
