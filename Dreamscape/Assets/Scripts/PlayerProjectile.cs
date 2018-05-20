@@ -37,11 +37,13 @@ public class PlayerProjectile : MonoBehaviour
 	
 	void OnCollisionEnter(Collision col)
 	{
+		//DestroySelf();
 	}
 	
 	void OnTriggerEnter(Collider col)
 	{
-		//DestroySelf();
+		if (!col.gameObject.CompareTag("Player"))
+			DestroySelf();
 	}
 	
 	void DestroySelf()

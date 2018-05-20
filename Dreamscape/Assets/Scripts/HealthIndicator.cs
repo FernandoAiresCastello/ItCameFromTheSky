@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GoldIndicator : MonoBehaviour
+public class HealthIndicator : MonoBehaviour
 {
 	private Player player;
 	private Text indicatorText;
+	private string indicator;
 	
 	void Awake()
 	{
@@ -20,6 +21,8 @@ public class GoldIndicator : MonoBehaviour
 	
 	void Update()
 	{
-		indicatorText.text = "G" + player.gold;
+		//indicator = new string('|', player.health);
+		//indicatorText.text = indicator;
+		indicatorText.text = "H" + player.health;
 	}
 }

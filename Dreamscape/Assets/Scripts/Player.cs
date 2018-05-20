@@ -9,9 +9,11 @@ public class Player : MonoBehaviour
 	public GameObject projectile;
 	public Vector3 projectileOffset = new Vector3(0.0f, 0.25f, 0.0f);
 	public int gold = 0;
+	public int health = 50;
+	public AudioClip fallSound;
 	
 	private Vector3 initialPos;
-	private AudioSource footstepsAudio;
+	private AudioSource audioSource;
 	private bool isGrounded = false;
 	
 	void Awake()
@@ -21,9 +23,9 @@ public class Player : MonoBehaviour
 	
 	void Start()
 	{
-        footstepsAudio = GetComponent<AudioSource>();
-		footstepsAudio.loop = true;
-        footstepsAudio.Stop();
+        audioSource = GetComponent<AudioSource>();
+		audioSource.loop = true;
+        audioSource.Stop();
 	}
 	
 	void Update()
@@ -74,16 +76,17 @@ public class Player : MonoBehaviour
 	
 	void Respawn()
 	{
+		audioSource.PlayOneShot(fallSound);
 		transform.position = new Vector3(initialPos.x, 5.0f, initialPos.z);
 	}
 	
 	void PlayFootsteps(bool play)
 	{
 		if (play && isGrounded) {
-			if (!footstepsAudio.isPlaying)
-				footstepsAudio.Play();
+			if (!audioSource.isPlaying)
+				audioSource.Play();
 		}
 		else
-			footstepsAudio.Stop();
+			audioSource.Stop();
 	}
 }

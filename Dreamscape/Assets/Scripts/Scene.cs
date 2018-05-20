@@ -18,11 +18,14 @@ public class Scene : MonoBehaviour
 	
 	void UpdateLevel()
 	{
-		var titleText = GameObject.Find("TitleText").GetComponent<Text>();
-		titleText.text = title;
+		var titleText = GameObject.Find("TitleText");
+		if (titleText != null)
+			titleText.GetComponent<Text>().text = title;
+		
 		var camera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
 		camera.backgroundColor = backColor;
 		RenderSettings.ambientLight = foreColor;
+		
 		var objs = FindObjectsOfType<GameObject>();
 		foreach (var obj in objs) {
 			var spriteRenderer = obj.GetComponent<SpriteRenderer>();
